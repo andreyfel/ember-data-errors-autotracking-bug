@@ -17,5 +17,10 @@ module('Integration | Component | test-errors', function(hooks) {
     await settled();
 
     assert.dom('.error-list__error').hasText('the-error');
+
+    this.tag.errors.remove('name');
+    await settled();
+
+    assert.dom('.error-list__error').doesNotExist();
   });
 });
